@@ -1,5 +1,6 @@
 FROM snps/alpine-jdk8
-MAINTAINER Felix Glas <felix.glas@afconsult.com>
+
+LABEL com.apple.author="Felix Glas"
 
 RUN apk update && apk add \
 	bash \
@@ -12,4 +13,4 @@ RUN curl -k -L -O https://github.com/sbt/sbt/releases/download/v1.0.2/sbt-1.0.2.
 
 ENV PATH=/usr/lib/sbt/bin:$PATH
 
-CMD sh
+ENTRYPOINT ["sbt"]
